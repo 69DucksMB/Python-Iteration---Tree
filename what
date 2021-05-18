@@ -1,0 +1,73 @@
+# ===================================== #
+# TREEEEEEEEE
+# 5/17/2021
+# Mark Balagtas
+# ===================================== #
+
+import turtle
+
+t = turtle.Turtle() 
+wn = turtle.Screen()
+wn.bgcolor('Black')
+wn.title('TREEEEEEEEE')
+t.color('brown')
+length = 100
+
+def recall(): # when called, moves turtle to initial point of 0,0
+    t.penup()
+    t.setpos(0,0)
+    t.setheading(90)
+    t.pendown()
+    
+def rbranch(): # iterated version to create 1 branch on the right side
+    t.forward(length/1.5)
+    t.left(20)
+    t.forward(length/2.5)
+    t.left(45)
+    t.forward(length*.05)
+    t.left(180)
+    t.forward(length*.05)
+    t.left(180)
+    t.right(90)
+    t.forward(length*.05)
+    t.penup()
+    recall()
+    
+def lbranch(): # iterated version to create 1 branch on the left side
+    t.forward(length/1.5)
+    t.right(20)
+    t.forward(length/2.5)
+    t.left(45)
+    t.forward(length*.05)
+    t.left(180)
+    t.forward(length*.05)
+    t.left(180)
+    t.right(90)
+    t.forward(length*.05)
+    t.penup()
+    recall()
+    
+def rbranches(): # creates 3 branches on the right
+    angle = 60
+    for i in range(3):
+        t.right(angle)
+        rbranch()
+        angle = angle/2
+        
+def lbranches():
+    angle = 60
+    for i in range(3): # creates 3 branches on the left
+        t.left(angle)
+        lbranch()
+        angle = angle/2
+
+def main(): # all funcs together
+    t.right(90)
+    t.forward(length)
+    recall()
+    rbranches()
+    lbranches()
+    wn.exitonclick()
+#============main=================
+
+main()
